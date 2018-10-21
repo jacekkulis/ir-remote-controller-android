@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#039BE5</color>
-    <color name="colorPrimaryDark">#0288D1</color>
-    <color name="colorAccent">#FFA000</color>
+    <color name="colorPrimary">#4D4D4D</color>
+    <color name="colorPrimaryDark">#333333</color>
+    <color name="colorPrimaryDarker">#666666</color>
+    <color name="colorAccent">#519657</color>
+    <color name="colorWhite">#FFFFFF</color>
 
-    <color name="grey_100">#F5F5F5</color>
-    <color name="grey_300">#E0E0E0</color>
-    <color name="grey_500">#9E9E9E</color>
+    <color name="colorActivated">#b2fab4</color>
+    <color name="colorHighlight">#b2fab4</color>
+
+    <color name="menuTextColor">#FFFFFF</color>
+    <color name="menuTextBackground">#FF4D4D4D</color>
+
+    <color name="colorRegister">#519657</color>
+    <color name="colorUnregister">#b43430</color>
+    <color name="colorUnavailable">#545454</color>
+
+    <color name="bg_swipe_left">#a6362e</color>
+    <color name="bg_swipe_right">#398e41</color>
+
+    <color name="item_name">#535353</color>
 </resources>

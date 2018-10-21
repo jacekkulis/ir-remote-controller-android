@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/nav_image_profile"
+            android:layout_width="@dimen/profile_width"
+            android:layout_height="@dimen/profile_height"
+            android:padding="@dimen/profile_padding"
+            android:layout_marginEnd="@dimen/profile_marginEnd"
+            android:layout_alignParentStart="true"
+            app:srcCompat="@drawable/ic_edit_profile" />
+
+        <TextView
+            android:id="@+id/nav_field_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/nav_image_profile"
+            android:text="@string/default_full_name"
+            android:textSize="@dimen/profile_full_name_text_size"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
