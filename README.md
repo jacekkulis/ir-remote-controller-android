@@ -14,9 +14,24 @@ Little understanding of android apps, gradle and java.
 
 A step by step series of examples that tell you how to get a development env running.
 
+
+Clone repository
 ```
-some command
+git clone <repo url>
 ```
+
+Open project in Android studio.
+Add firebase acc or google-services.json to project.
+
+To add firebase acc to project:
+```
+Open Tools > Firebase.
+Choose Firebase > Auth > Email and pass auth
+Click Connect to Firebase and login with your firebase account added to project in Firebase Platform.
+Do not add Firebase to project because it is already added.
+```
+
+Run app.
 
 ## Deployment
 
