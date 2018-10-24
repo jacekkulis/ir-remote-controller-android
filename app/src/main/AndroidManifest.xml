@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="pl.dmcs.remotecontrol">
 
+    <!-- Permission for internet connection -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -8,11 +10,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">'
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".activity.EmailPasswordActivity"
+        <activity
+            android:name=".activity.SignInActivity"
             android:label="Heh"
-            android:windowSoftInputMode="stateAlwaysHidden" >
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

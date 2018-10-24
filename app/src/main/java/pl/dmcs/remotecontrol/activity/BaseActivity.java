@@ -54,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
-    private FirebaseAuth mAuth;
+    protected FirebaseAuth mAuth;
     private String mClassTag;
     private Unbinder unbinder;
 
@@ -69,8 +69,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         RelativeLayout rootLayout = findViewById(R.id.root_layout);
 
         try {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }catch (Exception e){
+            if (getSupportActionBar() != null)
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (Exception e) {
             Log.d(getClassTag(), e.getMessage());
         }
     }
@@ -124,10 +125,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (id == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
             //SharedPrefManager.getInstance(this).logout();
-            startActivity(new Intent(this, EmailPasswordActivity.class));
+            startActivity(new Intent(this, SignInActivity.class));
             finish();
             return true;
-        }  else if (id == android.R.id.home) {
+        } else if (id == android.R.id.home) {
             // finish the activity
             onBackPressed();
             return true;

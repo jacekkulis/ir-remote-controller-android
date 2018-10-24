@@ -1,32 +1,5 @@
 <resources>
-    <string name="app_name">Shooting range</string>
-
-    <string name="label_google_sign_in">Firebase + Google Sign In</string>
-    <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
-
-    <string name="label_facebook_login">Firebase + Facebook Login</string>
-    <string name="desc_facebook_login">Use a Facebook Login credential to authenticate with Firebase.</string>
-
-    <string name="label_twitter_login">Firebase + Twitter Login</string>
-    <string name="desc_twitter_login">Use a Twitter Login credential to authenticate with Firebase.</string>
-
-    <string name="label_emailpassword">Email/Password Authentication</string>
-    <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.</string>
-
-    <string name="label_passwordless">Passwordless Authentication</string>
-    <string name="desc_passwordless">Use only an email to authenticate with Firebase.</string>
-
-    <string name="label_phone_auth">Phone Number Authentication</string>
-    <string name="desc_phone_auth">Use a phone number to authenticate with Firebase.</string>
-
-    <string name="label_anonymous_auth">Anonymous Authentication</string>
-    <string name="desc_anonymous_auth">Sign in anonymously and then later upgrade to a full Firebase Auth user.</string>
-
-    <string name="label_custom_auth">Custom Authentication</string>
-    <string name="desc_custom_auth">Use a custom token signed by your own server to authenticate with Firebase.</string>
-
-    <string name="label_firebase_ui">FirebaseUI Auth</string>
-    <string name="desc_firebase_ui">Use the FirebaseUI-Android library to authenticate with Firebase.</string>
+    <string name="app_name">TV Remote Control</string>
 
     <string name="hint_user_id">User ID</string>
     <string name="get_custom_token">Get Token</string>
@@ -82,54 +55,8 @@
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
 
-    <!-- Strings related to login and registration - hints -->
-    <string name="hint_username">Username</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_password_auth">Type password to authenticate.</string>
-    <string name="hint_repeat_password">Repeat password.</string>
-    <string name="hint_name">Insert name.</string>
-    <string name="hint_surname">Insert surname.</string>
-    <string name="hint_phone_number">Insert phone number.</string>
-    <string name="hint_legitimation_number">Insert legitimation number.</string>
-    <string name="hint_club">Choose club.</string>
-    <string name="hint_email">Email address</string>
-    <string name="hint_city">City name</string>
-    <string name="hint_address">Address</string>
-    <string name="hint_confirm_password">Confirm password</string>
-    <string name="hint_logout">Logout</string>
-
-
-    <!-- Strings related to login and registration - errors -->
-    <string name="error_field_required">This field is required.</string>
-    <string name="error_short">This field is too short.</string>
-    <string name="error_long">This field is too long.</string>
-    <string name="error_password_short"> Password need to be at least 8 characters.</string>
-    <string name="error_password_long">Password is too long (max. 20).</string>
-    <string name="error_password_incorrect">Passwords do not match.</string>
-    <string name="error_email_incorrect">This email address is invalid.</string>
-    <string name="error_phone_incorrect">This phone number is incorrect.</string>
-    <string name="error_only_numbers">This field consists only of numbers.</string>
-    <string name="error_default">Default error</string>
-    <string name="error_none">No error</string>
-
-
-    <string name="default_item_event_title">Event title</string>
-    <string name="default_item_event_description">Default description.</string>
-    <string name="default_item_event_date">XXXX-XX-XX</string>
-    <string name="default_instructor_name">Instructor name</string>
-    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
-    <!--
-        This is the name that users will see when interacting with this channel.
-        It should describe the category of notifications that will be sent through this channel
-     -->
-    <string name="default_notification_channel_name" translatable="true">News</string>
 
     <!-- Strings related to buttons -->
-    <string name="label_edit">EDIT</string>
-    <string name="label_sign_in">SIGN IN</string>
-    <string name="label_register">REGISTER</string>
-    <string name="label_policy">Range policy</string>
-    <string name="label_about_us">About us</string>
     <string name="label_home">Home</string>
     <string name="label_sign_up">Sign up</string>
     <string name="menu_logout">LOGOUT</string>
@@ -138,13 +65,6 @@
     <string name="content_email">email</string>
     <string name="content_name">name</string>
     <string name="content_password">password</string>
-    <string name="content_phone">phone</string>
-    <string name="content_city_address">city_adress</string>
-    <string name="content_legitimation">legitimation</string>
-    <string name="content_club">club</string>
-
-
-    <string name="success_edit_profile">Editing profile is successful.</string>
 
     <!-- Navigation drawer -->
     <string name="drawer_open">Open</string>
@@ -152,46 +72,23 @@
 
     <!--Nav items-->
     <string name="nav_item_home">Home</string>
-    <string name="nav_item_events">Events</string>
-    <string name="nav_item_guns">Available guns</string>
-    <string name="nav_item_instructors">Available instructors</string>
-    <string name="nav_item_edit_profile">Edit profile</string>
+    <string name="nav_item_add_remote">Add remote</string>
+    <string name="nav_item_my_remotes">My remotes</string>
     <string name="nav_item_settings">Settings</string>
-    <string name="nav_about_us">About Us</string>
-    <string name="nav_policy">Range policy</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="navigation_labels">
         <item>@string/nav_item_home</item>
-        <item>@string/nav_item_events</item>
-        <item>@string/nav_item_guns</item>
-        <item>@string/nav_item_instructors</item>
-        <item>@string/nav_item_edit_profile</item>
+        <item>@string/nav_item_add_remote</item>
+        <item>@string/nav_item_my_remotes</item>
         <item>@string/nav_item_settings</item>
-        <item>@string/nav_about_us</item>
-        <item>@string/nav_policy</item>
     </string-array>
 
     <string name="title_home">Home</string>
-    <string name="title_edit_profile">Edit profile</string>
-    <string name="title_events">Events</string>
-    <string name="title_guns">Available guns</string>
-    <string name="title_instructors">Available instructors</string>
-    <string name="title_settings">Settings</string>
-
-    <string name="tab_incoming_events">Incoming events</string>
+    <string name="hint_logout">Tap to logout</string>
+    <string name="hint_email">Write your email address.</string>
+    <string name="hint_password">Write your password.</string>
     <string name="default_full_name">Full name</string>
-    <string name="event_price">Price:</string>
-    <string name="default_event_price">100</string>
-    <string name="default_event_number">0</string>
-    <string name="event_participants">Available tickets:</string>
-    <string name="default_event_date_text">Date:</string>
-    <string name="default_details_event_text">Date:</string>
-    <string name="default_details_main_referee_text">Main referee:</string>
-    <string name="field_details_main_referee">Hehe Hehson</string>
-    <string name="default_details_type_of_competition_text">Type of competition:</string>
-    <string name="field_details_type_of_competition">KSP</string>
-    <string name="delete">delete</string>
-    <string name="unregister">unregister</string>
-    <string name="register">register</string>
+    <string name="default_email">Email@addres</string>
+    <string name="label_sign_in">Sign in</string>
 </resources>

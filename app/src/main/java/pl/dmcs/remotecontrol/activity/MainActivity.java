@@ -12,19 +12,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import pl.dmcs.remotecontrol.R;
+
 import butterknife.BindView;
+import pl.dmcs.remotecontrol.R;
+import pl.dmcs.remotecontrol.fragment.AddRemoteFragment;
 import pl.dmcs.remotecontrol.fragment.HomeFragment;
+import pl.dmcs.remotecontrol.fragment.MyRemotesFragment;
+import pl.dmcs.remotecontrol.fragment.SettingsFragment;
 
 public class MainActivity extends BaseActivity {
     private View navHeader;
 
     private Toolbar toolbar;
-    @BindView(R.id.nav_view) NavigationView navigationView;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
 
-    private TextView fullNameField;
+    private TextView emailField;
     private ImageView profileImage;
 
     // index to identify current nav menu item
@@ -32,6 +37,9 @@ public class MainActivity extends BaseActivity {
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
+    private static final String TAG_ADD_REMOTE = "add_remote";
+    private static final String TAG_MY_REMOTES = "my_remotes";
+    private static final String TAG_SETTINGS = "settings";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -49,9 +57,7 @@ public class MainActivity extends BaseActivity {
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
-
-
-        fullNameField = navHeader.findViewById(R.id.nav_field_full_name);
+        emailField = navHeader.findViewById(R.id.nav_field_email);
         profileImage = navHeader.findViewById(R.id.nav_image_profile);
 
         // load toolbar titles from string resources
@@ -88,9 +94,11 @@ public class MainActivity extends BaseActivity {
      */
     private void loadNavHeaderData() {
         // name, website
-//        String fullName = SharedPrefManager.getInstance(this).getUser().getName() + " " + SharedPrefManager.getInstance(this).getUser().getSurname();
-//        Log.d(getClassTag(), fullName);
-//        fullNameField.setText(fullName);
+
+        if (mAuth.getCurrentUser() != null) {
+            emailField.setText(mAuth.getCurrentUser().getEmail());
+        }
+
 //        //profileImage.setImageBitmap();
     }
 
@@ -134,9 +142,6 @@ public class MainActivity extends BaseActivity {
             mHandler.post(mPendingRunnable);
         }
 
-        // show or hide the fab button
-        //toggleFab();
-
         //Closing drawer on item click
         drawer.closeDrawers();
 
@@ -148,6 +153,12 @@ public class MainActivity extends BaseActivity {
         switch (navItemIndex) {
             case 0:
                 return new HomeFragment();
+            case 1:
+                return new AddRemoteFragment();
+            case 2:
+                return new MyRemotesFragment();
+            case 3:
+                return new SettingsFragment();
             default:
                 return new HomeFragment();
         }
@@ -179,6 +190,18 @@ public class MainActivity extends BaseActivity {
                     case R.id.nav_home:
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
+                        break;
+                    case R.id.nav_add_remote:
+                        navItemIndex = 1;
+                        CURRENT_TAG = TAG_ADD_REMOTE;
+                        break;
+                    case R.id.nav_my_remotes:
+                        navItemIndex = 2;
+                        CURRENT_TAG = TAG_MY_REMOTES;
+                        break;
+                    case R.id.nav_settings:
+                        navItemIndex = 3;
+                        CURRENT_TAG = TAG_SETTINGS;
                         break;
                     default:
                         navItemIndex = 0;
