@@ -85,11 +85,11 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         z = values[2];
 
         if (Round(x, 4) > 10.0000) {
-          Log.d("sensor", "X Left axis: " + x);
-          Toast.makeText(getContext(), "Left shake detected", Toast.LENGTH_SHORT).show();
-        } else if (Round(x, 4) < -10.0000) {
           Log.d("sensor", "X Right axis: " + x);
           Toast.makeText(getContext(), "Right shake detected", Toast.LENGTH_SHORT).show();
+        } else if (Round(x, 4) < -10.0000) {
+          Log.d("sensor", "X Left axis: " + x);
+          Toast.makeText(getContext(), "Left shake detected", Toast.LENGTH_SHORT).show();
         }
 
         float speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
