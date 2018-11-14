@@ -18,6 +18,7 @@ import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.fragment.AddRemoteFragment;
 import pl.dmcs.remotecontrol.fragment.HomeFragment;
 import pl.dmcs.remotecontrol.fragment.MyRemotesFragment;
+import pl.dmcs.remotecontrol.fragment.RemoteFragment;
 import pl.dmcs.remotecontrol.fragment.SettingsFragment;
 
 public class MainActivity extends BaseActivity {
@@ -156,7 +157,7 @@ public class MainActivity extends BaseActivity {
             case 1:
                 return new AddRemoteFragment();
             case 2:
-                return new MyRemotesFragment();
+                return new RemoteFragment();
             case 3:
                 return new SettingsFragment();
             default:
