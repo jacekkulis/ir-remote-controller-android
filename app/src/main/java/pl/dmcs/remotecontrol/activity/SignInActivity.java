@@ -42,7 +42,6 @@ public class SignInActivity extends BaseActivity implements
     private EditText mEmailField;
     private EditText mPasswordField;
 
-
     private FirebaseAuth mAuth;
 
     @Override
