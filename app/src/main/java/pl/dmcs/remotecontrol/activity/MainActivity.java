@@ -17,7 +17,6 @@ import butterknife.BindView;
 import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.fragment.AddRemoteFragment;
 import pl.dmcs.remotecontrol.fragment.HomeFragment;
-import pl.dmcs.remotecontrol.fragment.MyRemotesFragment;
 import pl.dmcs.remotecontrol.fragment.RemoteFragment;
 import pl.dmcs.remotecontrol.fragment.SettingsFragment;
 
@@ -37,11 +36,9 @@ public class MainActivity extends BaseActivity {
     public static int navItemIndex = 0;
 
     // tags used to attach the fragments
-    private static final String TAG_HOME = "home";
     private static final String TAG_ADD_REMOTE = "add_remote";
-    private static final String TAG_MY_REMOTES = "my_remotes";
-    private static final String TAG_SETTINGS = "settings";
-    public static String CURRENT_TAG = TAG_HOME;
+    private static final String TAG_REMOTE = "remote";
+    public static String CURRENT_TAG = TAG_REMOTE;
 
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
@@ -72,7 +69,7 @@ public class MainActivity extends BaseActivity {
 
         if (savedInstanceState == null) {
             navItemIndex = 0;
-            CURRENT_TAG = TAG_HOME;
+            CURRENT_TAG = TAG_REMOTE;
             loadHomeFragment();
         }
 
@@ -153,15 +150,11 @@ public class MainActivity extends BaseActivity {
     private Fragment getHomeFragment() {
         switch (navItemIndex) {
             case 0:
-                return new HomeFragment();
+                return new RemoteFragment();
             case 1:
                 return new AddRemoteFragment();
-            case 2:
-                return new RemoteFragment();
-            case 3:
-                return new SettingsFragment();
             default:
-                return new HomeFragment();
+                return new RemoteFragment();
         }
     }
 
@@ -184,25 +177,13 @@ public class MainActivity extends BaseActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()) {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.home:
+                    case R.id.nav_remote:
                         navItemIndex = 0;
-                        CURRENT_TAG = TAG_HOME;
-                        break;
-                    case R.id.nav_home:
-                        navItemIndex = 0;
-                        CURRENT_TAG = TAG_HOME;
+                        CURRENT_TAG = TAG_REMOTE;
                         break;
                     case R.id.nav_add_remote:
-                        navItemIndex = 1;
+                        navItemIndex = 0;
                         CURRENT_TAG = TAG_ADD_REMOTE;
-                        break;
-                    case R.id.nav_my_remotes:
-                        navItemIndex = 2;
-                        CURRENT_TAG = TAG_MY_REMOTES;
-                        break;
-                    case R.id.nav_settings:
-                        navItemIndex = 3;
-                        CURRENT_TAG = TAG_SETTINGS;
                         break;
                     default:
                         navItemIndex = 0;

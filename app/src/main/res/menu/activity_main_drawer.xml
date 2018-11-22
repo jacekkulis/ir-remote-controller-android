@@ -2,20 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_white_24dp"
-            android:title="Home" />
+            android:id="@+id/nav_remote"
+            android:icon="@drawable/ic_remote_24dp"
+            android:title="Remote Control" />
         <item
             android:id="@+id/nav_add_remote"
             android:icon="@drawable/ic_add_white_24dp"
             android:title="Add remote" />
-        <item
-            android:id="@+id/nav_my_remotes"
-            android:icon="@drawable/ic_my_remotes_24dp"
-            android:title="My remotes" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_white_24dp"
-            android:title="Settings" />
     </group>
 </menu>

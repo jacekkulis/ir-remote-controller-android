@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView2"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -24,7 +24,7 @@
         android:layout_marginTop="53dp"
         android:src="@drawable/ic_power_settings_new_black_24dp" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView3"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -36,7 +36,7 @@
         android:layout_toEndOf="@+id/imageView2"
         android:src="@drawable/ic_menu_black_24dp" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView4"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="35dp"
         android:src="@drawable/ic_chevron_left_black_24dp" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView5"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -63,7 +63,7 @@
         android:text="Channel"
         android:textAlignment="center" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView6"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -72,7 +72,7 @@
         android:layout_marginBottom="190dp"
         android:src="@drawable/ic_expand_more_black_24dp" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView7"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -89,7 +89,7 @@
         android:text="Volume"
         android:textAlignment="center" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView9"
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -97,7 +97,7 @@
         android:layout_alignTop="@+id/imageView6"
         android:src="@drawable/ic_remove_black_24dp" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imageView10"
         android:layout_width="70dp"
         android:layout_height="70dp"
