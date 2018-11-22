@@ -1,8 +1,5 @@
 package pl.dmcs.remotecontrol.irtransmitter;
 
-/**
- * Created by charky on 05.09.15.
- */
 public class IRCommand {
 
     private int frequency = 0;

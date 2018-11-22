@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.hardware.ConsumerIrManager;
 
-/**
- * Created by charky on 06.09.15.
- */
 public class IRTransmitter {
 
     private ConsumerIrManager mCIR;

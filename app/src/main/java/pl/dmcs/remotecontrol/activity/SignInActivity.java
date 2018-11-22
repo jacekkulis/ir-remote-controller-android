@@ -33,9 +33,6 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 import pl.dmcs.remotecontrol.R;
-import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
-import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
-import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
 
 public class SignInActivity extends BaseActivity implements
         View.OnClickListener {
@@ -45,8 +42,7 @@ public class SignInActivity extends BaseActivity implements
     private EditText mEmailField;
     private EditText mPasswordField;
 
-    IRTransmitter irTransmitter;
-    GenericIRCodes genericIRCodes;
+
     private FirebaseAuth mAuth;
 
     @Override
@@ -62,14 +58,6 @@ public class SignInActivity extends BaseActivity implements
         findViewById(R.id.emailCreateAccountButton).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-
-        findViewById(R.id.powerButton).setOnClickListener(this);
-
-
-        //Create IRTransmitter
-        irTransmitter = new IRTransmitter(this, new SamsungIRCodes());
-        genericIRCodes = irTransmitter.getGenericIRCodes();
-
     }
 
     @Override
@@ -213,14 +201,6 @@ public class SignInActivity extends BaseActivity implements
             createAccount(mEmailField.getText().toString(), mPasswordField.getText().toString());
         } else if (i == R.id.emailSignInButton) {
             signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
-        } else if (i == R.id.powerButton) {
-            Toast.makeText(this.getApplicationContext(), "Sending power IR signal",
-                    Toast.LENGTH_SHORT).show();
-            try {
-                irTransmitter.sendIR(genericIRCodes.getIRC_POWER());
-            } catch (IRTransmitter.NoIREmitterException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

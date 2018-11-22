@@ -66,10 +66,5 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/label_sign_up" />
 
-        <Button
-            android:id="@+id/powerButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="POWER" />
     </LinearLayout>
 </RelativeLayout>
