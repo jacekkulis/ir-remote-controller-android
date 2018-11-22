@@ -182,7 +182,7 @@ public class MainActivity extends BaseActivity {
                         CURRENT_TAG = TAG_REMOTE;
                         break;
                     case R.id.nav_add_remote:
-                        navItemIndex = 0;
+                        navItemIndex = 1;
                         CURRENT_TAG = TAG_ADD_REMOTE;
                         break;
                     default:

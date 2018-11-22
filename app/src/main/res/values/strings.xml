@@ -71,13 +71,13 @@
     <string name="drawer_close">Close</string>
 
     <!--Nav items-->
-    <string name="nav_item_add_remote">Remote Control</string>
-    <string name="nav_item_my_remotes">My remotes</string>
+    <string name="nav_item_remote">Remote Control</string>
+    <string name="nav_item_add_remote">Add remote</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="navigation_labels">
+        <item>@string/nav_item_remote</item>
         <item>@string/nav_item_add_remote</item>
-        <item>@string/nav_item_my_remotes</item>
     </string-array>
 
     <string name="title_home">Home</string>
