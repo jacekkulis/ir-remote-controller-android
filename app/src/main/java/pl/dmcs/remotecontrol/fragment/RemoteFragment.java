@@ -19,6 +19,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
+import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
+import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
 
 /**
  * Created by Jacek on 14.11.2017.
@@ -52,6 +55,11 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     @BindView(R.id.spinnerTVs)
     Spinner spinnerTVs;
 
+
+    IRTransmitter irTransmitter;
+    GenericIRCodes genericIRCodes;
+
+
     public RemoteFragment() {
         // Required empty public constructor
     }
@@ -64,6 +72,11 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         if (sensor != null) {
             sensorService.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
+
+
+        //Create IRTransmitter
+        irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
+        genericIRCodes = irTransmitter.getGenericIRCodes();
     }
 
     @Override
@@ -75,42 +88,74 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
 
     @OnClick(R.id.powerTV)
     public void powerButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_POWER());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.menuTV)
     public void menuButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.backTV)
     public void backButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_EXIT());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.channelUpTV)
     public void channelUpButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_CHANNEL_UP());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.channelDownTV)
     public void channelDownButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_CHANNEL_DOWN());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.volumeUpTV)
     public void volumeUpButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_VOLUME_UP());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.volumeDownTV)
     public void volumeDownButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_VOLUME_DOWN());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @OnClick(R.id.muteTV)
     public void muteButtonClicked() {
-        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MUTE());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
