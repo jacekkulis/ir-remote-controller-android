@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true" />
 
     <ImageButton
-        android:id="@+id/imageView2"
+        android:id="@+id/powerTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
@@ -25,7 +25,7 @@
         android:src="@drawable/ic_power_settings_new_black_24dp" />
 
     <ImageButton
-        android:id="@+id/imageView3"
+        android:id="@+id/menuTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentTop="true"
@@ -33,23 +33,23 @@
         android:layout_marginStart="55dp"
         android:layout_marginTop="53dp"
         android:layout_marginEnd="157dp"
-        android:layout_toEndOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/powerTV"
         android:src="@drawable/ic_menu_black_24dp" />
 
     <ImageButton
-        android:id="@+id/imageView4"
+        android:id="@+id/backTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignTop="@+id/menuTV"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="35dp"
         android:src="@drawable/ic_chevron_left_black_24dp" />
 
     <ImageButton
-        android:id="@+id/imageView5"
+        android:id="@+id/channelUpTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/powerTV"
         android:layout_alignParentTop="true"
         android:layout_marginTop="188dp"
         android:src="@drawable/ic_expand_less_black_24dp" />
@@ -58,50 +58,50 @@
         android:id="@+id/textView2"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/powerTV"
         android:layout_centerVertical="true"
         android:text="Channel"
         android:textAlignment="center" />
 
     <ImageButton
-        android:id="@+id/imageView6"
+        android:id="@+id/channelDownTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/powerTV"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="190dp"
         android:src="@drawable/ic_expand_more_black_24dp" />
 
     <ImageButton
-        android:id="@+id/imageView7"
+        android:id="@+id/volumeUpTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignStart="@+id/imageView4"
-        android:layout_alignTop="@+id/imageView5"
+        android:layout_alignStart="@+id/backTV"
+        android:layout_alignTop="@+id/channelUpTV"
         android:src="@drawable/ic_add_black_24dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignStart="@+id/backTV"
         android:layout_alignTop="@+id/textView2"
         android:text="Volume"
         android:textAlignment="center" />
 
     <ImageButton
-        android:id="@+id/imageView9"
+        android:id="@+id/volumeDownTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignStart="@+id/imageView4"
-        android:layout_alignTop="@+id/imageView6"
+        android:layout_alignStart="@+id/backTV"
+        android:layout_alignTop="@+id/channelDownTV"
         android:src="@drawable/ic_remove_black_24dp" />
 
     <ImageButton
-        android:id="@+id/imageView10"
+        android:id="@+id/muteTV"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignStart="@+id/backTV"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="60dp"
@@ -111,7 +111,7 @@
         android:id="@+id/textView4"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignStart="@+id/backTV"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="31dp"
         android:text="Mute"
@@ -121,7 +121,7 @@
         android:id="@+id/textView"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView2"
+        android:layout_alignStart="@+id/powerTV"
         android:layout_alignParentTop="true"
         android:layout_marginTop="131dp"
         android:text="On/Off"
@@ -131,7 +131,7 @@
         android:id="@+id/textView7"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignStart="@+id/menuTV"
         android:layout_alignBottom="@+id/textView"
         android:text="Menu"
         android:textAlignment="center" />
@@ -140,19 +140,9 @@
         android:id="@+id/textView8"
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView4"
+        android:layout_alignStart="@+id/backTV"
         android:layout_alignBottom="@+id/textView"
         android:text="Back"
         android:textAlignment="center" />
-
-    <Button
-        android:id="@+id/powerButton"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/imageView3"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="197dp"
-        android:text="POWER" />
 
 </RelativeLayout>

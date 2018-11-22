@@ -6,10 +6,18 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
 
 /**
@@ -25,6 +33,25 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     private SensorManager sensorService;
     private Sensor sensor;
 
+    @BindView(R.id.powerTV)
+    ImageButton powerButtonTV;
+    @BindView(R.id.menuTV)
+    ImageButton menuTV;
+    @BindView(R.id.backTV)
+    ImageButton backTV;
+    @BindView(R.id.channelUpTV)
+    ImageButton channelUpTV;
+    @BindView(R.id.channelDownTV)
+    ImageButton channelDownTV;
+    @BindView(R.id.volumeUpTV)
+    ImageButton volumeUpTV;
+    @BindView(R.id.volumeDownTV)
+    ImageButton volumeDownTV;
+    @BindView(R.id.muteTV)
+    ImageButton muteTV;
+    @BindView(R.id.spinnerTVs)
+    Spinner spinnerTVs;
+
     public RemoteFragment() {
         // Required empty public constructor
     }
@@ -37,6 +64,53 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         if (sensor != null) {
             sensorService.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_remote, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @OnClick(R.id.powerTV)
+    public void powerButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.menuTV)
+    public void menuButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.backTV)
+    public void backButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.channelUpTV)
+    public void channelUpButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.channelDownTV)
+    public void channelDownButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.volumeUpTV)
+    public void volumeUpButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.volumeDownTV)
+    public void volumeDownButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.muteTV)
+    public void muteButtonClicked() {
+        Toast.makeText(getContext(), "Button clicked!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
