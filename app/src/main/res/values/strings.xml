@@ -80,6 +80,10 @@
         <item>@string/nav_item_add_remote</item>
     </string-array>
 
+    <string-array name="manufacturers_array">
+        <item>Samsung</item>
+    </string-array>
+
     <string name="title_home">Home</string>
     <string name="hint_logout">Tap to logout</string>
     <string name="hint_email">Write your email address.</string>

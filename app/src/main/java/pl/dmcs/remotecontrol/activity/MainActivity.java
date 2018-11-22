@@ -16,9 +16,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.fragment.AddRemoteFragment;
-import pl.dmcs.remotecontrol.fragment.HomeFragment;
 import pl.dmcs.remotecontrol.fragment.RemoteFragment;
-import pl.dmcs.remotecontrol.fragment.SettingsFragment;
 
 public class MainActivity extends BaseActivity {
     private View navHeader;
