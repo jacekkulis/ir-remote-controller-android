@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+
 import pl.dmcs.remotecontrol.R;
 
 
 public abstract class BaseFragment extends Fragment {
     private String mClassTag;
     private boolean mIsFragmentCreated;
+
 
     public BaseFragment() {
         setClassTag(this.getClass().getSimpleName());

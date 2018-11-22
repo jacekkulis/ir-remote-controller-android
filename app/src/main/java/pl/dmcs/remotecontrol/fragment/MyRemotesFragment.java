@@ -2,6 +2,7 @@ package pl.dmcs.remotecontrol.fragment;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import pl.dmcs.remotecontrol.R;
 
@@ -10,6 +11,9 @@ import pl.dmcs.remotecontrol.R;
  */
 
 public class MyRemotesFragment extends BaseFragment {
+
+    private Button powerButton;
+
     public MyRemotesFragment() {
         // Required empty public constructor
     }
@@ -17,14 +21,15 @@ public class MyRemotesFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // do sth
+        powerButton = getView().findViewById(R.id.powerButton);
+
+
     }
 
     @Override
