@@ -8,7 +8,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +67,14 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
 
     public RemoteFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (sensor != null) {
+            sensorService.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+        }
     }
 
     @Override
@@ -212,7 +219,6 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             long curTime = System.currentTimeMillis();
             if ((curTime - lastUpdate) > 100) {
-                long diffTime = (curTime - lastUpdate);
                 lastUpdate = curTime;
 
                 float[] values = event.values;
@@ -220,20 +226,9 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
                 y = values[1];
                 z = values[2];
 
-                if (Round(x, 4) > 10.0000) {
-                    Log.d("sensor", "X Right axis: " + x);
-                    Toast.makeText(getContext(), "Right shake detected", Toast.LENGTH_SHORT).show();
-                } else if (Round(x, 4) < -10.0000) {
-                    Log.d("sensor", "X Left axis: " + x);
-                    Toast.makeText(getContext(), "Left shake detected", Toast.LENGTH_SHORT).show();
-                }
-
-                float speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-
-                // Log.d("sensor", "diff: " + diffTime + " - speed: " + speed);
-                if (speed > SHAKE_THRESHOLD) {
-                    //Log.d("sensor", "shake detected w/ speed: " + speed);
-                    //Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                if (Round(x, 4) > 10.0000 || Round(x, 4) < -10.0000) {
+                    Toast.makeText(getContext(), "Shake detected - sending POWER command", Toast.LENGTH_SHORT).show();
+                    powerButtonTV.performClick();
                 }
                 last_x = x;
                 last_y = y;
