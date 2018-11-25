@@ -1,6 +1,7 @@
 package pl.dmcs.remotecontrol.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,9 +12,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -83,6 +89,16 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_remote, container, false);
         ButterKnife.bind(this, view);
+        SharedPreferences prefs = getContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE);
+        Map<String, ?> all = prefs.getAll();
+        List<String> spinnerItems = new ArrayList<>();
+        for (Map.Entry<String, ?> entry : all.entrySet()) {
+            spinnerItems.add(entry.getKey() + ": " + entry.getValue().toString());
+        }
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item, spinnerItems);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTVs.setAdapter(dataAdapter);
         return view;
     }
 
