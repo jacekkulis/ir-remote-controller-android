@@ -20,6 +20,7 @@
 
         <activity
             android:name=".activity.SignInActivity"
+            android:screenOrientation="portrait"
             android:label="Heh"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>

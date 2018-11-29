@@ -44,6 +44,32 @@
             android:layout_marginTop="50dp"
             android:text="Add" />
 
+        <Spinner
+            android:id="@+id/current_devices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="237dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="262dp"
+            android:text="Currently added Devices"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="132dp"
+            android:text="Delete" />
+
     </RelativeLayout>
 
 </RelativeLayout>
