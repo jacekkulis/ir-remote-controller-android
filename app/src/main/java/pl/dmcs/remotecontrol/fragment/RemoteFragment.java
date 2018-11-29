@@ -25,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
+import pl.dmcs.remotecontrol.ScreenFacingState;
 import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
 import pl.dmcs.remotecontrol.irtransmitter.irlibrary.LGIRCodes;
@@ -42,6 +43,8 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     private float x, y, z;
     private float last_x, last_y, last_z;
     private static long lastClick = 0L;
+    private static boolean muted = false;
+    private static ScreenFacingState screenFacingState = ScreenFacingState.UP;
     private SensorManager sensorService;
     private Sensor sensor;
 
@@ -64,10 +67,8 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     @BindView(R.id.spinnerTVs)
     Spinner spinnerTVs;
 
-
     IRTransmitter irTransmitter;
     GenericIRCodes genericIRCodes;
-
 
     public RemoteFragment() {
         // Required empty public constructor
@@ -204,6 +205,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     public void muteButtonClicked() {
         try {
             irTransmitter.sendIR(genericIRCodes.getIRC_MUTE());
+            muted = !muted;
         } catch (IRTransmitter.NoIREmitterException e) {
             e.printStackTrace();
         }
@@ -258,6 +260,18 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
                     Toast.makeText(getContext(), "Shake detected - sending POWER command", Toast.LENGTH_SHORT).show();
                     powerButtonTV.performClick();
                     lastClick = System.currentTimeMillis();
+                }
+
+                if (z >= 0 && screenFacingState == ScreenFacingState.DOWN) {
+                    Toast.makeText(getContext(), "Phone facing up - unmuting", Toast.LENGTH_SHORT).show();
+                    if (muted) {
+                        muteTV.performClick();
+                    }
+                } else if (z < 0 && screenFacingState == ScreenFacingState.UP) {
+                    Toast.makeText(getContext(), "Phone facing down - muting", Toast.LENGTH_SHORT).show();
+                    if (!muted) {
+                        muteTV.performClick();
+                    }
                 }
                 last_x = x;
                 last_y = y;
