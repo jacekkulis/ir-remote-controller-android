@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -26,6 +27,9 @@ import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.LGIRCodes;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.NECIRCodes;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.PanasonicIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
 
 /**
@@ -86,9 +90,18 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
             sensorService.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
 
+    }
 
-        //Create IRTransmitter
-        irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
+    private void createIRTransmitter(String s) {
+        if (s.equals(" Samsung")) {
+            irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
+        } else if (s.equals(" LG")) {
+            irTransmitter = new IRTransmitter(this.getActivity(), new LGIRCodes());
+        } else if (s.equals(" NEC")) {
+            irTransmitter = new IRTransmitter(this.getActivity(), new NECIRCodes());
+        } else if (s.equals(" Panasonic")) {
+            irTransmitter = new IRTransmitter(this.getActivity(), new PanasonicIRCodes());
+        }
         genericIRCodes = irTransmitter.getGenericIRCodes();
     }
 
@@ -106,6 +119,19 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
                 android.R.layout.simple_spinner_item, spinnerItems);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTVs.setAdapter(dataAdapter);
+        spinnerTVs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedItem = adapterView.getSelectedItem().toString();
+                String[] array = selectedItem.split(":");
+                createIRTransmitter(array[1]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         return view;
     }
 

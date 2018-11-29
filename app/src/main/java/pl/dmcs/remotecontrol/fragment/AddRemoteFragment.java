@@ -94,6 +94,7 @@ public class AddRemoteFragment extends BaseFragment {
         if (prefs.getString(customName.getText().toString(), "DEFAULT").equals("DEFAULT")) {
             prefs.edit().putString(customName.getText().toString(), manufacturers_spinner.getSelectedItem().toString()).apply();
             Toast.makeText(getContext(), "TV added", Toast.LENGTH_SHORT).show();
+            setSpinnerItems(prefs);
         } else {
             Toast.makeText(getContext(), "TV with this name already exists", Toast.LENGTH_SHORT).show();
         }
