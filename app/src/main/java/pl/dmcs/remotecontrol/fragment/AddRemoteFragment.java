@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,13 +31,20 @@ public class AddRemoteFragment extends BaseFragment {
     @BindView(R.id.manufacturers_spinner)
     Spinner manufacturers_spinner;
 
+    @BindView(R.id.current_devices)
+    Spinner current_devices;
+
     @BindView(R.id.custom_name)
     EditText customName;
 
     @BindView(R.id.addButton)
     Button addButton;
 
+    @BindView(R.id.deleteButton)
+    Button deleteButton;
+
     ArrayAdapter<CharSequence> adapter;
+    ArrayAdapter<String> deleteAdapter;
 
     public AddRemoteFragment() {
         // Required empty public constructor
@@ -58,6 +69,19 @@ public class AddRemoteFragment extends BaseFragment {
                 R.array.manufacturers_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         manufacturers_spinner.setAdapter(adapter);
+        SharedPreferences prefs = getContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE);
+        setSpinnerItems(prefs);
+    }
+
+    private void setSpinnerItems(SharedPreferences prefs) {
+        Map<String, ?> all = prefs.getAll();
+        List<String> spinnerItems = new ArrayList<>();
+        for (Map.Entry<String, ?> entry : all.entrySet()) {
+            spinnerItems.add(entry.getKey() + ": " + entry.getValue().toString());
+        }
+        deleteAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item, spinnerItems);
+        current_devices.setAdapter(deleteAdapter);
     }
 
     @OnClick(R.id.addButton)
@@ -73,6 +97,19 @@ public class AddRemoteFragment extends BaseFragment {
         } else {
             Toast.makeText(getContext(), "TV with this name already exists", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @OnClick(R.id.deleteButton)
+    public void deleteButtonClicked() {
+        Object obj = current_devices.getSelectedItem();
+        if (obj == null) {
+            return;
+        }
+        SharedPreferences prefs = getContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE);
+        String s = current_devices.getSelectedItem().toString();
+        String[] arrays = s.split(":");
+        prefs.edit().remove(arrays[0]).commit();
+        setSpinnerItems(prefs);
     }
 
     @Override
