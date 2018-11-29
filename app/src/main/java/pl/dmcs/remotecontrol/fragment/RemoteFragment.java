@@ -37,7 +37,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     private long lastUpdate = -1;
     private float x, y, z;
     private float last_x, last_y, last_z;
-    private static final int SHAKE_THRESHOLD = 800;
+    private static long lastClick = 0L;
     private SensorManager sensorService;
     private Sensor sensor;
 
@@ -228,9 +228,10 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
                 y = values[1];
                 z = values[2];
 
-                if (Round(x, 4) > 10.0000 || Round(x, 4) < -10.0000) {
+                if ((Round(x, 4) > 10.0000 || Round(x, 4) < -10.0000) && System.currentTimeMillis() - lastClick > 1500L) {
                     Toast.makeText(getContext(), "Shake detected - sending POWER command", Toast.LENGTH_SHORT).show();
                     powerButtonTV.performClick();
+                    lastClick = System.currentTimeMillis();
                 }
                 last_x = x;
                 last_y = y;
