@@ -21,7 +21,7 @@ import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
-import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.LGIRCodes;
 
 /**
  * Created by Jacek on 14.11.2017.
@@ -75,7 +75,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
 
 
         //Create IRTransmitter
-        irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
+        irTransmitter = new IRTransmitter(this.getActivity(), new LGIRCodes());
         genericIRCodes = irTransmitter.getGenericIRCodes();
     }
 
@@ -93,6 +93,8 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         } catch (IRTransmitter.NoIREmitterException e) {
             e.printStackTrace();
         }
+
+
     }
 
     @OnClick(R.id.menuTV)
@@ -107,7 +109,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     @OnClick(R.id.backTV)
     public void backButtonClicked() {
         try {
-            irTransmitter.sendIR(genericIRCodes.getIRC_EXIT());
+            irTransmitter.sendIR(genericIRCodes.getIRC_RETURN());
         } catch (IRTransmitter.NoIREmitterException e) {
             e.printStackTrace();
         }

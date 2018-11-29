@@ -36,6 +36,10 @@ public abstract class GenericIRCodes {
 
     public abstract IRCommand getIRC_EXIT();
 
+    public static final int IRC_RETURN = 314;
+
+    public abstract IRCommand getIRC_RETURN();
+
     /**
      * This is a generic Function to get the IRCommand by ID
      *
@@ -60,6 +64,8 @@ public abstract class GenericIRCodes {
                 return getIRC_MENU();
             case IRC_EXIT:
                 return getIRC_EXIT();
+            case IRC_RETURN:
+                return getIRC_RETURN();
         }
         return null;
     }
