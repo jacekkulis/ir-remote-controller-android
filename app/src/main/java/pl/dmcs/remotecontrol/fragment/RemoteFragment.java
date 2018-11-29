@@ -26,7 +26,7 @@ import butterknife.OnClick;
 import pl.dmcs.remotecontrol.R;
 import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
-import pl.dmcs.remotecontrol.irtransmitter.irlibrary.LGIRCodes;
+import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
 
 /**
  * Created by Jacek on 14.11.2017.
@@ -88,7 +88,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
 
 
         //Create IRTransmitter
-        irTransmitter = new IRTransmitter(this.getActivity(), new LGIRCodes());
+        irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
         genericIRCodes = irTransmitter.getGenericIRCodes();
     }
 
