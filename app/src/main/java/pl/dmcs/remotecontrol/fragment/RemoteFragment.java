@@ -126,7 +126,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
             spinnerItems.add(entry.getKey() + ": " + entry.getValue().toString());
         }
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, spinnerItems);
+                R.layout.spinner_item, spinnerItems);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTVs.setAdapter(dataAdapter);
         spinnerTVs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
