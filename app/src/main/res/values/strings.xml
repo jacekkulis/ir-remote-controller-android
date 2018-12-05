@@ -83,7 +83,6 @@
     <string-array name="manufacturers_array">
         <item>Samsung</item>
         <item>LG</item>
-        <item>NEC</item>
         <item>Panasonic</item>
     </string-array>
 

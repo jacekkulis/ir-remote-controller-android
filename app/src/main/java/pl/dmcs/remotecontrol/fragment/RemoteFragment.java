@@ -9,7 +9,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,6 +44,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     private long lastUpdate = -1;
     private float x, y, z;
     private float last_x, last_y, last_z;
+    private int currentSpinnerPosition = 0;
     private static long lastClick = 0L;
     private static boolean muted = false;
     private static ScreenFacingState screenFacingState = ScreenFacingState.UP;
@@ -121,7 +124,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         ButterKnife.bind(this, view);
         SharedPreferences prefs = getContext().getSharedPreferences("SHARED_PREFERENCES", Context.MODE_PRIVATE);
         Map<String, ?> all = prefs.getAll();
-        List<String> spinnerItems = new ArrayList<>();
+        final List<String> spinnerItems = new ArrayList<>();
         for (Map.Entry<String, ?> entry : all.entrySet()) {
             spinnerItems.add(entry.getKey() + ": " + entry.getValue().toString());
         }
@@ -132,6 +135,7 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         spinnerTVs.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                currentSpinnerPosition = i;
                 String selectedItem = adapterView.getSelectedItem().toString();
                 String[] array = selectedItem.split(":");
                 createIRTransmitter(array[1]);
@@ -140,6 +144,48 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+        final GestureDetector gesture = new GestureDetector(getActivity(),
+                new GestureDetector.SimpleOnGestureListener() {
+
+                    @Override
+                    public boolean onDown(MotionEvent e) {
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                           float velocityY) {
+                        final int SWIPE_MIN_DISTANCE = 120;
+                        final int SWIPE_MAX_OFF_PATH = 250;
+                        final int SWIPE_THRESHOLD_VELOCITY = 200;
+                        try {
+                            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+                                return false;
+                            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
+                                    && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                                if (currentSpinnerPosition - 1 >= 0) {
+                                    spinnerTVs.setSelection(currentSpinnerPosition - 1);
+                                }
+                            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
+                                    && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                                if (currentSpinnerPosition + 1 < spinnerItems.size()) {
+                                    spinnerTVs.setSelection(currentSpinnerPosition + 1);
+                                }
+                                System.out.print("Left to Right");
+                            }
+                        } catch (Exception e) {
+                            // nothing
+                        }
+                        return super.onFling(e1, e2, velocityX, velocityY);
+                    }
+                });
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gesture.onTouchEvent(event);
             }
         });
         return view;
