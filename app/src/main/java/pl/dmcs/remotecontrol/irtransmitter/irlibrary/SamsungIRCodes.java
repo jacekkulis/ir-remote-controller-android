@@ -56,6 +56,41 @@ public class SamsungIRCodes extends GenericIRCodes {
         return IRCommand.createIRCommand(frequency, BT_RETURN_codes);
     }
 
+    public static final int[] BT_ARROW_UP_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 46592};
+
+
+    public IRCommand getIRC_MENU_UP() {
+        return IRCommand.createIRCommand(frequency, BT_ARROW_UP_codes);
+    }
+
+    public static final int[] BT_ARROW_DOWN_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 46592};
+
+
+    public IRCommand getIRC_MENU_DOWN() {
+        return IRCommand.createIRCommand(frequency, BT_ARROW_DOWN_codes);
+    }
+
+    public static final int[] BT_ARROW_LEFT_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 46592};
+
+
+    public IRCommand getIRC_MENU_LEFT() {
+        return IRCommand.createIRCommand(frequency, BT_ARROW_LEFT_codes);
+    }
+
+    public static final int[] BT_ARROW_RIGHT_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 1664, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 46592};
+
+
+    public IRCommand getIRC_MENU_RIGHT() {
+        return IRCommand.createIRCommand(frequency, BT_ARROW_RIGHT_codes);
+    }
+
+    public static final int[] BT_ENTER_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 1664, 572, 1664, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 1664, 572, 46592};
+
+
+    public IRCommand getIRC_MENU_OK() {
+        return IRCommand.createIRCommand(frequency, BT_ENTER_codes);
+    }
+
     public static final int[] BT_SOURCE_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 46592};
 
     public IRCommand getIRC_SOURCE() {
@@ -79,6 +114,6 @@ public class SamsungIRCodes extends GenericIRCodes {
     public IRCommand getIRC_VOLUME_UP() {
         return IRCommand.createIRCommand(frequency, BT_VOLUME_UP_codes);
     }
-    
+
 }
 

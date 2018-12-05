@@ -8,6 +8,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,6 @@ import pl.dmcs.remotecontrol.ScreenFacingState;
 import pl.dmcs.remotecontrol.irtransmitter.GenericIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.IRTransmitter;
 import pl.dmcs.remotecontrol.irtransmitter.irlibrary.LGIRCodes;
-import pl.dmcs.remotecontrol.irtransmitter.irlibrary.NECIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.irlibrary.PanasonicIRCodes;
 import pl.dmcs.remotecontrol.irtransmitter.irlibrary.SamsungIRCodes;
 
@@ -67,6 +67,18 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     @BindView(R.id.spinnerTVs)
     Spinner spinnerTVs;
 
+    @BindView(R.id.menuUp)
+    FloatingActionButton menuUp;
+    @BindView(R.id.menuDown)
+    FloatingActionButton menuDown;
+    @BindView(R.id.menuRight)
+    FloatingActionButton menuRight;
+    @BindView(R.id.menuLeft)
+    FloatingActionButton menuLeft;
+    @BindView(R.id.menuOk)
+    FloatingActionButton menuOk;
+
+
     IRTransmitter irTransmitter;
     GenericIRCodes genericIRCodes;
 
@@ -90,7 +102,6 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         if (sensor != null) {
             sensorService.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
-
     }
 
     private void createIRTransmitter(String s) {
@@ -98,8 +109,6 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
             irTransmitter = new IRTransmitter(this.getActivity(), new SamsungIRCodes());
         } else if (s.equals(" LG")) {
             irTransmitter = new IRTransmitter(this.getActivity(), new LGIRCodes());
-        } else if (s.equals(" NEC")) {
-            irTransmitter = new IRTransmitter(this.getActivity(), new NECIRCodes());
         } else if (s.equals(" Panasonic")) {
             irTransmitter = new IRTransmitter(this.getActivity(), new PanasonicIRCodes());
         }
@@ -211,6 +220,52 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
         }
     }
 
+
+    @OnClick(R.id.menuUp)
+    public void menuUpButtonClicked() {
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU_UP());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.menuDown)
+    public void menuDownButtonClicked() {
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU_DOWN());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.menuLeft)
+    public void menuLeftButtonClicked() {
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU_LEFT());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.menuRight)
+    public void menuRightButtonClicked() {
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU_RIGHT());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @OnClick(R.id.menuOk)
+    public void menuOkButtonClicked() {
+        try {
+            irTransmitter.sendIR(genericIRCodes.getIRC_MENU_OK());
+        } catch (IRTransmitter.NoIREmitterException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -228,8 +283,6 @@ public class RemoteFragment extends BaseFragment implements SensorEventListener 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // do sth
     }
 
     @Override

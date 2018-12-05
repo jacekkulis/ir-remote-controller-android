@@ -69,6 +69,31 @@ public class PanasonicIRCodes extends GenericIRCodes {
         return IRCommand.createIRCommand(frequency, BT_RETURN_codes);
     }
 
+    @Override
+    public IRCommand getIRC_MENU_UP() {
+        return null;
+    }
+
+    @Override
+    public IRCommand getIRC_MENU_DOWN() {
+        return null;
+    }
+
+    @Override
+    public IRCommand getIRC_MENU_LEFT() {
+        return null;
+    }
+
+    @Override
+    public IRCommand getIRC_MENU_RIGHT() {
+        return null;
+    }
+
+    @Override
+    public IRCommand getIRC_MENU_OK() {
+        return null;
+    }
+
     public static final int[] BT_SOURCE_codes = new int[]{4446, 4446, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 1664, 572, 46592};
 
     public IRCommand getIRC_SOURCE() {

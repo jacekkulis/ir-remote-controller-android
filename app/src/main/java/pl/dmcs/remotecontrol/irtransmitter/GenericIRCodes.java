@@ -40,6 +40,26 @@ public abstract class GenericIRCodes {
 
     public abstract IRCommand getIRC_RETURN();
 
+    public static final int IRC_MENU_UP = 315;
+
+    public abstract IRCommand getIRC_MENU_UP();
+
+    public static final int IRC_MENU_DOWN = 316;
+
+    public abstract IRCommand getIRC_MENU_DOWN();
+
+    public static final int IRC_MENU_LEFT = 317;
+
+    public abstract IRCommand getIRC_MENU_LEFT();
+
+    public static final int IRC_MENU_RIGHT = 318;
+
+    public abstract IRCommand getIRC_MENU_RIGHT();
+
+    public static final int IRC_MENU_OK = 318;
+
+    public abstract IRCommand getIRC_MENU_OK();
+
     /**
      * This is a generic Function to get the IRCommand by ID
      *
