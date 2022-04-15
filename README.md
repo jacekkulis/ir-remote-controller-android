@@ -39,7 +39,7 @@ No recommendation to put it on production.
 
 ## Built With
 
-* [Firebase](https://firebase.google.com/](https://firebase.google.com/) -  Google's mobile platform that helps you quickly develop high-quality apps and grow your business
+* [Firebase](https://firebase.google.com/](https://firebase.google.com/ ) -  Google's mobile platform that helps you quickly develop high-quality apps and grow your business
 * [Butter Knife](http://jakewharton.github.io/butterknife/) - Field and method binding for Android views
 * [Gradle](https://gradle.org/) - Dependency management
 
